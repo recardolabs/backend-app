@@ -24,15 +24,6 @@ resource "aws_s3_bucket_object" "aattack-path-shepards-credentials" {
 data "aws_canonical_user_id" "current" {}
 
 resource "aws_s3_bucket" "finance-secret-s3-bucket" {
-  bucket = "finance-secret-${var.ebillingid}"
-  force_destroy = true
-  tags = {
-      Name = "finance-secret-${var.ebillingid}"
-      Description = "ebilling ${var.ebillingid} S3 Bucket used for storing a secret"
-      Stack = "${var.stack-name}"
-      Scenario = "${var.scenario-name}"
-  }
-}
 
   bucket = "finance-secret-${var.ebillingid}"
   force_destroy = true
