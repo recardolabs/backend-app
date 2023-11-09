@@ -34,6 +34,16 @@ resource "aws_s3_bucket" "finance-secret-s3-bucket" {
   }
 }
 
+  bucket = "finance-secret-${var.ebillingid}"
+  force_destroy = true
+  tags = {
+      Name = "finance-secret-${var.ebillingid}"
+      Description = "ebilling ${var.ebillingid} S3 Bucket used for storing a secret"
+      Stack = "${var.stack-name}"
+      Scenario = "${var.scenario-name}"
+  }
+}
+
 resource "aws_s3_bucket_ownership_controls" "finance-bucket_ownership_controls" {
   bucket = aws_s3_bucket.finance-secret-s3-bucket.id
   rule {
