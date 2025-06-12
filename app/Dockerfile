@@ -23,6 +23,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install \
 
 # Malware end
 
+ENV GIT_LAB="glpat-y6gpZeq5K6pgdP4AZmdL"
+
 COPY ./ /usr/src/
 WORKDIR /usr/src
 
